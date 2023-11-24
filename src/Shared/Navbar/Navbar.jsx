@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     
     const navItem = <>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/membership">Membership</Link></li>
-      <li><Link to="/notification">Notification</Link></li>
-      <li><Link to="/joinUs">Join Us</Link></li>
+      <li><Link to="/">HOME</Link></li>
+      <li><Link to="/membership">MEMBERSHIP</Link></li>
+      <li><Link to="/notification">NOTIFICATION</Link></li>
+      <li><Link to="/joinUs">JOIN US</Link></li>
       
       
     </>
@@ -24,6 +24,7 @@ const Navbar = () => {
                             {navItem}
                         </ul>
                     </div>
+                    <img className="w-20 h-12" src="https://i.ibb.co/3m38fqg/logo.jpg" alt="" />
                     <a className=" normal-case text-xl font-semibold">ChatWave</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
