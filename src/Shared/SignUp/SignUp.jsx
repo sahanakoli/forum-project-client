@@ -1,17 +1,45 @@
+
 import { Link } from "react-router-dom";
+import { imageUpload } from "../../api/utils";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
 
-    const handleSubmit = event =>{
+    const { createUser, updateUserProfile} = useAuth();
+
+    const handleSubmit = async (event) =>{
         event.preventDefault();
 
         const form = event.target;
         const name = form.name.value;
         const image = form.image.files[0];
+        const imageData = await imageUpload(image)
+        
         const email = form.email.value;
         const password = form.password.value;
+
+
+        try{
+            const imageData = await imageUpload(image)
+            const result = await createUser(email, password)
+            await updateUserProfile(name, imageData?.data?.display_url)
+
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User Login Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+
+            console.log(result);
+
+        } catch(err){
+            console.log(err);
+        }
         console.log({name, email, password});
-        console.log(image);
+        console.log(imageData);
     }
     return (
         <div className='flex justify-center items-center min-h-screen'>
