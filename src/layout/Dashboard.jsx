@@ -1,17 +1,21 @@
 import { NavLink, Outlet } from "react-router-dom";
-import {  FaComment, FaHouse,  FaUser  } from "react-icons/fa6";
+import {  FaComment, FaHouse,  FaSignsPost,  FaUser  } from "react-icons/fa6";
 import { GrAnnounce } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
+import useAdmin from "../hooks/useAdmin";
 
 
 
 const Dashboard = () => {
+
+    const isAdmin = useAdmin();
     return (
         <div className="flex">
             {/* dashboard side bar */}
             <div className="w-64 min-h-screen bg-blue-200">
                 <ul className="menu p-4">
-                    
+                    {
+                        isAdmin ?
                         <>
                             <li>
                                 <NavLink to="/dashboard/adminProfile">
@@ -30,8 +34,8 @@ const Dashboard = () => {
                                 <GrAnnounce />
                                     Make Announcement</NavLink></li>
                         </>
-                            
-                            {/* <>
+                           : 
+                            <>
                                 <li>
                                     <NavLink to="/dashboard/userHome">
                                     <CgProfile />
@@ -45,7 +49,8 @@ const Dashboard = () => {
                                     <FaSignsPost />
                                         My Posts</NavLink></li>
                                 
-                            </> */}
+                            </> 
+                        }
                     
                     {/* sheard navLinks */}
                     <div className="divider"></div>
