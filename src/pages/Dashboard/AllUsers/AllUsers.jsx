@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
-// import Swal from "sweetalert2";
-// import { FaTrash, FaUsers } from "react-icons/fa6";
+import Swal from "sweetalert2";
+import {  FaUsers } from "react-icons/fa6";
 
 
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure();
-    const { data: users = [],  } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users');
@@ -41,22 +41,22 @@ const AllUsers = () => {
     //     });
     // }
 
-    // const handleMakeAdmin = user => {
-    //     axiosSecure.patch(`/users/admin/${user._id}`)
-    //         .then(res => {
-    //             console.log(res.data)
-    //             if (res.data.modifiedCount > 0) {
-    //                 refetch();
-    //                 Swal.fire({
-    //                     position: "top-end",
-    //                     icon: "success",
-    //                     title: `${user.name} is an Admin Now!`,
-    //                     showConfirmButton: false,
-    //                     timer: 1500
-    //                 });
-    //             }
-    //         })
-    // }
+    const handleMakeAdmin = user => {
+        axiosSecure.patch(`/users/admin/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
     return (
         <div>
             <div className="flex justify-between gap-10">
@@ -82,9 +82,9 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    {/* {
+                                    {
                                         user.role === 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn bg-orange-500 btn-lg"><FaUsers className=' text-white text-xl'></FaUsers></button>
-                                    } */}
+                                    }
                                 </td>
                                 {/* <td><button onClick={() => handleDelete(user)} className="btn btn-ghost btn-lg"><FaTrash className=' text-red-600 text-xl'></FaTrash></button></td> */}
                             </tr>)
