@@ -10,7 +10,7 @@ import AdminProfile from "../pages/Dashboard/AdminProfile/AdminProfile";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import ReportedComments from "../pages/Dashboard/ReportedComments/ReportedComments";
 import MakeAnnouncement from "../pages/Dashboard/MakeAnnouncement/MakeAnnouncement";
-import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+
 
 const router = createBrowserRouter([
     {
@@ -58,10 +58,7 @@ const router = createBrowserRouter([
           path:'makeAnnouncement',
           element:<MakeAnnouncement></MakeAnnouncement>
         },
-        {
-          path:'allUsers',
-          element:<AllUsers></AllUsers>
-        }
+        
       ]
     }
   ]);

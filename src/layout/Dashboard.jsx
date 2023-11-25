@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import {  FaComment, FaHouse,  FaUser, FaUsers,  } from "react-icons/fa6";
+import {  FaComment, FaHouse,  FaUser  } from "react-icons/fa6";
 import { GrAnnounce } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
 
@@ -29,12 +29,6 @@ const Dashboard = () => {
                                 <NavLink to="/dashboard/makeAnnouncement">
                                 <GrAnnounce />
                                     Make Announcement</NavLink></li>
-                            <li>
-                                <NavLink to="/dashboard/allUsers">
-                                    <FaUsers></FaUsers>
-                                    All Users</NavLink>
-                            </li>
-
                         </>
                             
                             {/* <>
