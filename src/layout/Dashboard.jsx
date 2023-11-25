@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import {  FaComment, FaHouse,  FaUser, FaUsers,  } from "react-icons/fa6";
 import { GrAnnounce } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
-import { MdContactMail } from "react-icons/md";
+
 
 
 const Dashboard = () => {
@@ -14,23 +14,23 @@ const Dashboard = () => {
                     
                         <>
                             <li>
-                                <NavLink to="/dashboard/userHome">
+                                <NavLink to="/dashboard/adminProfile">
                                 <CgProfile />
                                     Admin Profile</NavLink></li>
                             <li>
-                                <NavLink to="/dashboard/addItems">
+                                <NavLink to="/dashboard/manageUsers">
                                     <FaUser></FaUser>
                                     Manage Users</NavLink></li>
                             <li>
-                                <NavLink to="/dashboard/manageItem">
+                                <NavLink to="/dashboard/reportedComments">
                                     <FaComment></FaComment>
                                     Reported Comments</NavLink></li>
                             <li>
-                                <NavLink to="/dashboard/review">
+                                <NavLink to="/dashboard/makeAnnouncement">
                                 <GrAnnounce />
                                     Make Announcement</NavLink></li>
                             <li>
-                                <NavLink to="/dashboard/booking">
+                                <NavLink to="/dashboard/allUsers">
                                     <FaUsers></FaUsers>
                                     All Users</NavLink>
                             </li>
@@ -59,16 +59,6 @@ const Dashboard = () => {
                         <NavLink to="/">
                             <FaHouse></FaHouse>
                             Home</NavLink></li>
-                    <li>
-                        <NavLink to="/dashboard/contact">
-                            <MdContactMail />
-                            Contact</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="users">
-                        <FaUsers />
-                            All users</NavLink>
-                    </li>
                 </ul>
 
             </div>

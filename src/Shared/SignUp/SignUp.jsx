@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
-// import Swal from "sweetalert2";
-// import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../component/SocialLogin/SocialLogin";
@@ -10,10 +10,10 @@ import SocialLogin from "../../component/SocialLogin/SocialLogin";
 
 const SignUp = () => {
 
-    // const axiosPublic  = useAxiosPublic();
+    const axiosPublic  = useAxiosPublic();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useAuth();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         createUser(data.email, data.password)
@@ -25,26 +25,26 @@ const SignUp = () => {
                         console.log('user profile update')
                            reset();
                         // create user entry in the database
-                        // const userInfo = {
-                        //     name: data.name,
-                        //     email: data.email
-                        // }
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
 
-                        // axiosPublic.post('/users', userInfo)
-                        //     .then(res => {
-                        //         if (res.data.insertedId) {
-                        //             console.log('user added to the database')
-                        //             reset();
-                        //             Swal.fire({
-                        //                 position: "top-end",
-                        //                 icon: "success",
-                        //                 title: "User Sign Up Successfully",
-                        //                 showConfirmButton: false,
-                        //                 timer: 1500
-                        //             });
-                        //             navigate('/');
-                        //         }
-                        //     })
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('user added to the database')
+                                    reset();
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "User Sign Up Successfully",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
                     })
                     .catch(error => console.log(error))
             })
