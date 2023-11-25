@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import MenuDropdown from "./MenuDropdown";
+import { MdNotificationsActive } from "react-icons/md";
 
 
 
@@ -7,7 +9,11 @@ const Navbar = () => {
     const navItem = <>
       <li><Link to="/">HOME</Link></li>
       <li><Link to="/membership">MEMBERSHIP</Link></li>
-      <li><Link to="/notification">NOTIFICATION</Link></li>
+      <li><Link to="/notification">
+      <button className="pt-1">
+              <MdNotificationsActive className="mr-2 text-lg" />
+            </button>
+        </Link></li>
       <li><Link to="/joinUs">JOIN US</Link></li>
       
       
@@ -24,8 +30,8 @@ const Navbar = () => {
                             {navItem}
                         </ul>
                     </div>
-                    <img className="w-20 h-12" src="https://i.ibb.co/3m38fqg/logo.jpg" alt="" />
-                    <a className=" normal-case text-xl font-semibold">ChatWave</a>
+                    <img className="w-24 h-14" src="https://i.ibb.co/W5CDqgW/forum.png" alt="" />
+                    <a className=" normal-case text-xl font-semibold">Gobal Forum</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -33,7 +39,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                   <button className='btn btn-outline btn-warning'>Login</button>
+                   <MenuDropdown />
                 </div>
             </div>
         </div>

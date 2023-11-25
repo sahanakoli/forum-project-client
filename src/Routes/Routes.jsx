@@ -5,6 +5,8 @@ import ErrorPage from "../component/ErrorPage/ErrorPage";
 import JoinUs from "../pages/Home/JoinUs/JoinUs";
 import SignUp from "../Shared/SignUp/SignUp";
 import Membership from "../pages/Home/Membership/Membership";
+import Dashboard from "../layout/Dashboard";
+import AdminProfile from "../pages/Dashboard/AdminProfile/AdminProfile";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +33,16 @@ const router = createBrowserRouter([
         
       ]
     },
+    {
+      path:'dashboard',
+      element:<Dashboard></Dashboard>,
+      children: [
+        {
+          path:'adminProfile',
+          element:<AdminProfile></AdminProfile>
+        }
+      ]
+    }
   ]);
 
   export default router;

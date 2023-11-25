@@ -1,148 +1,113 @@
-
 import { Link } from "react-router-dom";
-import { imageUpload } from "../../api/utils";
+import { useForm } from "react-hook-form"
+// import Swal from "sweetalert2";
+// import useAxiosPublic from "../../hooks/useAxiosPublic";
+
 import useAuth from "../../hooks/useAuth";
-import Swal from "sweetalert2";
+import SocialLogin from "../../component/SocialLogin/SocialLogin";
+
+
 
 const SignUp = () => {
 
-    const { createUser, updateUserProfile} = useAuth();
+    // const axiosPublic  = useAxiosPublic();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { createUser, updateUserProfile } = useAuth();
+    // const navigate = useNavigate();
 
-    const handleSubmit = async (event) =>{
-        event.preventDefault();
+    const onSubmit = data => {
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        console.log('user profile update')
+                           reset();
+                        // create user entry in the database
+                        // const userInfo = {
+                        //     name: data.name,
+                        //     email: data.email
+                        // }
 
-        const form = event.target;
-        const name = form.name.value;
-        const image = form.image.files[0];
-        const imageData = await imageUpload(image)
-        
-        const email = form.email.value;
-        const password = form.password.value;
+                        // axiosPublic.post('/users', userInfo)
+                        //     .then(res => {
+                        //         if (res.data.insertedId) {
+                        //             console.log('user added to the database')
+                        //             reset();
+                        //             Swal.fire({
+                        //                 position: "top-end",
+                        //                 icon: "success",
+                        //                 title: "User Sign Up Successfully",
+                        //                 showConfirmButton: false,
+                        //                 timer: 1500
+                        //             });
+                        //             navigate('/');
+                        //         }
+                        //     })
+                    })
+                    .catch(error => console.log(error))
+            })
+    };
 
-
-        try{
-            const imageData = await imageUpload(image)
-            const result = await createUser(email, password)
-            await updateUserProfile(name, imageData?.data?.display_url)
-
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "User Login Successfully",
-                showConfirmButton: false,
-                timer: 1500
-              });
-
-            console.log(result);
-
-        } catch(err){
-            console.log(err);
-        }
-        console.log({name, email, password});
-        console.log(imageData);
-    }
     return (
-        <div className='flex justify-center items-center min-h-screen'>
-      <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
-        <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
+        <div>
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row">
+                    <div className="w-1/2 mr-12">
+                        
+                    </div>
+                    <div className="card flex-shrink-0 w-full max-w-sm mt-24 shadow-2xl bg-base-100">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                            <h1 className="text-3xl font-bold text-center">Sign Up</h1>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="name" {...register("name", { required: true })} name='name' placeholder="Name" className="input input-bordered" />
+                                {errors.name && <span className=" text-red-600">Name is required</span>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
+                                {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="email" {...register("email", { required: true })} name='email' placeholder="email" className="input input-bordered" />
+                                {errors.email && <span className=" text-red-600">Email is required</span>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type="password" {...register("password", {
+                                    required: true,
+                                    minLength: 6,
+                                    maxLength: 20,
+                                })} name='password' placeholder="password" className="input input-bordered" />
+                                {errors.password?.type === 'required' && <p className=" text-red-600">Password is required</p>}
+                                {errors.password?.type === 'minLength' && <p className=" text-red-600">Password must be 6 characters</p>}
+                                {errors.password?.type === 'maxLength' && <p className=" text-red-600">Password must be less then 20 characters</p>}
+                                <label className="label">
+                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                </label>
+                            </div>
+                            <div className="form-control mt-6 mb-3">
+                                <input className="btn bg-blue-300 text-white" type="submit" value="Sign Up" />
+                            </div>
+                            <p className='ml-16 '>Already have an account? <Link to='/login' className=' text-blue-300'>Login</Link></p>
+                            <div className='divider'></div>
+                            <SocialLogin></SocialLogin>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <form onSubmit={handleSubmit}
-          noValidate=''
-          action=''
-          className='space-y-6 ng-untouched ng-pristine ng-valid'
-        >
-          <div className='space-y-4'>
-            <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
-                Name
-              </label>
-              <input
-                type='text'
-                name='name'
-                id='name'
-                placeholder='Name'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
-                data-temp-mail-org='0'
-              />
-            </div>
-            <div>
-              <label htmlFor='image' className='block mb-2 text-sm'>
-                Select Image:
-              </label>
-              <input
-                required
-                type='file'
-                id='image'
-                name='image'
-                accept='image/*'
-              />
-            </div>
-            <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
-                Email address
-              </label>
-              <input
-                type='email'
-                name='email'
-                id='email'
-                required
-                placeholder='Email'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
-                data-temp-mail-org='0'
-              />
-            </div>
-            <div>
-              <div className='flex justify-between'>
-                <label htmlFor='password' className='text-sm mb-2'>
-                  Password
-                </label>
-              </div>
-              <input
-                type='password'
-                name='password'
-                autoComplete='new-password'
-                id='password'
-                required
-                placeholder='*******'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'
-              />
-            </div>
-          </div>
-
-          <div>
-            <button
-              type='submit'
-              className='bg-blue-300 w-full rounded-md py-3 text-white'
-            >
-              Sign Up
-            </button>
-          </div>
-        </form>
-        <div className='flex items-center pt-4 space-x-1'>
-          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
-          <p className='px-3 text-sm dark:text-gray-400'>
-            Signup with social accounts
-          </p>
-          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
-        </div>
-        {/* <div className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
-          <FcGoogle size={32} />
-
-          <p>Continue with Google</p>
-        </div> */}
-        <p className='px-6 text-sm text-center text-gray-400'>
-          Already have an account?{' '}
-          <Link
-            to='/login'
-            className='hover:underline hover:text-rose-500 text-gray-600'
-          >
-            Login
-          </Link>
-          .
-        </p>
-      </div>
-    </div>
     );
 };
 
