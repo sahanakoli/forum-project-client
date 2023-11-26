@@ -1,20 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+
+import useAuth from "../../../hooks/useAuth";
+
+
 
 const MyProfile = () => {
 
-    const axiosSecure = useAxiosSecure();
-    const { data: users } = useQuery({
-        queryKey: ['users.email'],
-        queryFn: async () => {
-            const res = await axiosSecure.get(`/users/${users.email}`, {
-                headers: {
-                    authorization: 'Bearer'
-                }
-            });
-            return res.data;
-        }
-    })
+
+    const { user } = useAuth();
+
     return (
         <div>
             <h2 className=" text-3xl font-semibold">My Profile</h2>
@@ -23,7 +16,7 @@ const MyProfile = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            
+
                             <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -31,13 +24,21 @@ const MyProfile = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                                <td>Photo</td>
-                                <td></td>
-                                <td></td>
-                                <td>Badge</td>
-                            </tr>
-                     
+                        {/* row 1 */}
+                        <tr>
+                            <td>
+                                
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={user.photoURL} alt="" />
+                                        </div>
+                                    </div>
+                            </td>
+                            <td>{user.displayName}</td>
+                            <td>{user.email}</td>
+                            <td>Badge</td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>

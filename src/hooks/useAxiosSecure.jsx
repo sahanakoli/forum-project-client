@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-    baseURL: import.meta.env.VITE_image_hosting_key,
+    baseURL: import.meta.env.VITE_localhost_key,
     
 })
 const useAxiosSecure = () =>{

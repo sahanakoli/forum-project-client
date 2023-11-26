@@ -28,7 +28,7 @@ const SignUp = () => {
                         const userInfo = {
                             name: data.name,
                             email: data.email,
-                            image: data.display_url,
+                            image: data.photoURL,
                             badge: data.badge
                         }
 
@@ -103,7 +103,7 @@ const SignUp = () => {
                                     <span className="label-text">Badge</span>
                                 </label>
                                 <input type="badge" {...register("badge", { required: true })} name='badge' placeholder="Badge" className="input input-bordered" />
-                                {errors.name && <span className=" text-red-600">Name is required</span>}
+                                {errors.name && <span className=" text-red-600">Badge is required</span>}
                             </div>
                             <div className="form-control mt-6 mb-3">
                                 <input className="btn bg-blue-300 text-white" type="submit" value="Sign Up" />
