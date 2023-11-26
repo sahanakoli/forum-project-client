@@ -8,7 +8,7 @@ import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
 
-    const isAdmin = useAdmin();
+    const [isAdmin] = useAdmin();
     return (
         <div className="flex">
             {/* dashboard side bar */}
@@ -37,15 +37,15 @@ const Dashboard = () => {
                            : 
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/userHome">
+                                    <NavLink to="/dashboard/myProfile">
                                     <CgProfile />
                                         My Profile</NavLink></li>
                                 <li>
-                                    <NavLink to="/dashboard/cart">
+                                    <NavLink to="/dashboard/addPost">
                                     <FaSignsPost />
                                         Add Post </NavLink></li>
                                 <li>
-                                    <NavLink to="/dashboard/review">
+                                    <NavLink to="/dashboard/myPost">
                                     <FaSignsPost />
                                         My Posts</NavLink></li>
                                 

@@ -27,7 +27,9 @@ const SignUp = () => {
                         // create user entry in the database
                         const userInfo = {
                             name: data.name,
-                            email: data.email
+                            email: data.email,
+                            image: data.display_url,
+                            badge: data.badge
                         }
 
                         axiosPublic.post('/users', userInfo)
@@ -71,7 +73,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
+                                <input type="photoURL"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
                                 {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
                             </div>
                             <div className="form-control">
@@ -90,17 +92,23 @@ const SignUp = () => {
                                     minLength: 6,
                                     maxLength: 20,
                                 })} name='password' placeholder="password" className="input input-bordered" />
-                                {errors.password?.type === 'required' && <p className=" text-red-600">Password is required</p>}
                                 {errors.password?.type === 'minLength' && <p className=" text-red-600">Password must be 6 characters</p>}
                                 {errors.password?.type === 'maxLength' && <p className=" text-red-600">Password must be less then 20 characters</p>}
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Badge</span>
+                                </label>
+                                <input type="badge" {...register("badge", { required: true })} name='badge' placeholder="Badge" className="input input-bordered" />
+                                {errors.name && <span className=" text-red-600">Name is required</span>}
+                            </div>
                             <div className="form-control mt-6 mb-3">
                                 <input className="btn bg-blue-300 text-white" type="submit" value="Sign Up" />
                             </div>
-                            <p className='ml-16 '>Already have an account? <Link to='/login' className=' text-blue-300'>Login</Link></p>
+                            <p className='ml-16 '>Already have an account? <Link to='/joinUs' className=' text-blue-300'>Login</Link></p>
                             <div className='divider'></div>
                             <SocialLogin></SocialLogin>
                         </form>

@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-    baseURL: import.meta.env.VITE_api_url,
+    baseURL: import.meta.env.VITE_image_hosting_key,
     
 })
 const useAxiosSecure = () =>{
@@ -26,7 +26,7 @@ const useAxiosSecure = () =>{
         // for 401 or 403 logout the user and move the user to the login 
         if(status === 401 || status === 403){
             await logOut();
-            navigate('/login');
+            navigate('/joinUs');
         }
         return Promise.reject(error);
      })
