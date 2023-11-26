@@ -1,9 +1,10 @@
+import Post from "../Post/Post";
 
 
 const Home = () => {
     return (
         <div>
-            <h2>Home Page</h2>
+            <Post></Post>
         </div>
     );
 };
