@@ -29,7 +29,7 @@ const SignUp = () => {
                             name: data.name,
                             email: data.email,
                             image: data.photoURL,
-                            badge: data.badge
+                            
                         }
 
                         axiosPublic.post('/users', userInfo)
@@ -94,17 +94,6 @@ const SignUp = () => {
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Badge</span>
-                                </label>
-                                <select defaultValue="default" {...register('badge', { required: true })}
-                                className="select select-bordered w-full">
-                                <option value="Bronze">Bronze</option>
-                            </select>
-                                {/* <input type="badge" {...register("badge", { required: true })} name='badge' placeholder="Badge" className="input input-bordered" />
-                                {errors.name && <span className=" text-red-600">Badge is required</span>} */}
                             </div>
                             <div className="form-control mt-6 mb-3">
                                 <input className="btn bg-blue-300 text-white" type="submit" value="Sign Up" />

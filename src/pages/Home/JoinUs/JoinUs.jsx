@@ -69,7 +69,7 @@ const JoinUs = () => {
               </label>
             </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-blue-300 text-white">Login</button>
+                        <input className="btn bg-blue-300 text-white" type="submit" value="Login" />
                     </div>
                     <p>New here? Create a New Account <Link to='/signUp' className=' text-blue-300'>Sign Up</Link></p>
                     <div className='divider'></div>
