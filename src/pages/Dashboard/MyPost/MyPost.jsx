@@ -1,18 +1,9 @@
-// import { useQuery } from "@tanstack/react-query";
-// import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 
 const MyPost = () => {
 
-    // const axiosSecure = useAxiosSecure();
-    // const {data: posts } = useQuery({
-    //     queryKey: ['posts'],
-    //     queryFn: async () =>{
-    //        const res = await axiosSecure.get(`/posts/${posts.email}`);
-    //        return res.data;
-    //     }
-    // })
+    
 
     
     return (
@@ -41,7 +32,7 @@ const MyPost = () => {
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
-                                                <img src="" alt="" />
+                                            <img src="" alt="" />
                                             </div>
                                         </div>
                                     </div>
