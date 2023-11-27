@@ -3,7 +3,7 @@ import { BiDownvote, BiUpvote } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
-    const {_id, name, image, title, description, tag, upVote, downVote } = post;
+    const {_id, name, image, title,  tag, upVote, downVote } = post;
     return (
         <div>
         <Link to={`/postDetails/${_id}`}>
@@ -19,7 +19,6 @@ const PostCard = ({ post }) => {
                     </div>
                     <p>{tag}</p>
                     <p>{title}</p>
-                    <p>{description}</p>
                     <div className=" flex gap-4 mt-2">
                         <button className="btn">
                             <BiUpvote />

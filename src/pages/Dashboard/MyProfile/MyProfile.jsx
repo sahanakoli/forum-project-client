@@ -20,7 +20,7 @@ const MyProfile = () => {
                             <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Badge</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +36,7 @@ const MyProfile = () => {
                             </td>
                             <td>{user.displayName}</td>
                             <td>{user.email}</td>
-                            <td>Badge</td>
+                            <td></td>
                         </tr>
 
                     </tbody>

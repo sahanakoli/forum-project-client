@@ -1,7 +1,18 @@
+// import { useQuery } from "@tanstack/react-query";
+// import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 
 const MyPost = () => {
+
+    // const axiosSecure = useAxiosSecure();
+    // const {data: posts } = useQuery({
+    //     queryKey: ['posts'],
+    //     queryFn: async () =>{
+    //        const res = await axiosSecure.get(`/posts/${posts.email}`);
+    //        return res.data;
+    //     }
+    // })
 
     
     return (

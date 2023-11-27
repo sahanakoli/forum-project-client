@@ -31,6 +31,7 @@ const AddPost = () => {
                 title: data.title,
                 description: data.description,
                 image: res.data.data.display_url,
+                time: data.time,
                 tag: data.tag,
                 upVote: data.upVote,
                 downVote: data.downVote
@@ -98,6 +99,18 @@ const AddPost = () => {
                             type="text"
                             placeholder="Post Description"
                             {...register('description', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
+                    </div>
+                    {/* time */}
+                    <div className="form-control w-1/2 lg:w-full my-6">
+                        <label className="label">
+                            <span className="label-text">Post Time</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Post Time"
+                            {...register('time', { required: true })}
                             required
                             className="input input-bordered w-full" />
                     </div>
