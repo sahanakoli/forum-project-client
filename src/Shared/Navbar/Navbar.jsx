@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import MenuDropdown from "./MenuDropdown";
 import { MdNotificationsActive } from "react-icons/md";
+import useAnnouncement from "../../hooks/useAnnouncement";
 
 
 
 const Navbar = () => {
+
+    const notification = useAnnouncement();
     
     const navItem = <>
       <li><Link to="/">HOME</Link></li>
@@ -12,6 +15,7 @@ const Navbar = () => {
       <li><Link to="/notification">
       <button className="pt-1">
               <MdNotificationsActive className="mr-2 text-lg" />
+              <div className="badge ">{notification.length}</div>
             </button>
         </Link></li>
       <li><Link to="/joinUs">JOIN US</Link></li>

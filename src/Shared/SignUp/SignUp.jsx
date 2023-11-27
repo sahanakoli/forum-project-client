@@ -10,7 +10,7 @@ import SocialLogin from "../../component/SocialLogin/SocialLogin";
 
 const SignUp = () => {
 
-    const axiosPublic  = useAxiosPublic();
+    const axiosPublic = useAxiosPublic();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useAuth();
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         console.log('user profile update')
-                           reset();
+                        reset();
                         // create user entry in the database
                         const userInfo = {
                             name: data.name,
@@ -56,9 +56,6 @@ const SignUp = () => {
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
-                    <div className="w-1/2 mr-12">
-                        
-                    </div>
                     <div className="card flex-shrink-0 w-full max-w-sm mt-24 shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <h1 className="text-3xl font-bold text-center">Sign Up</h1>
@@ -102,8 +99,12 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Badge</span>
                                 </label>
-                                <input type="badge" {...register("badge", { required: true })} name='badge' placeholder="Badge" className="input input-bordered" />
-                                {errors.name && <span className=" text-red-600">Badge is required</span>}
+                                <select defaultValue="default" {...register('badge', { required: true })}
+                                className="select select-bordered w-full">
+                                <option value="Bronze">Bronze</option>
+                            </select>
+                                {/* <input type="badge" {...register("badge", { required: true })} name='badge' placeholder="Badge" className="input input-bordered" />
+                                {errors.name && <span className=" text-red-600">Badge is required</span>} */}
                             </div>
                             <div className="form-control mt-6 mb-3">
                                 <input className="btn bg-blue-300 text-white" type="submit" value="Sign Up" />
@@ -112,6 +113,9 @@ const SignUp = () => {
                             <div className='divider'></div>
                             <SocialLogin></SocialLogin>
                         </form>
+                    </div>
+                    <div className="ml-10 w-1/2">
+                        <img className=" rounded-lg" src="https://i.ibb.co/86Z06fF/login.jpg" alt="" />
                     </div>
                 </div>
             </div>

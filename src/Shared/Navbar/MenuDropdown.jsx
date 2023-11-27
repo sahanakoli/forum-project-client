@@ -25,7 +25,7 @@ const MenuDropdown = () => {
           {
                         user ?
                             <div className=" ">
-                                <img className=" w-12 h-12 rounded-full" src={user?.photoURL ? user.photoURL : `https://i.ibb.co/D9wWRM6/olivia.jpg`} alt="" />
+                                <img className=" w-14 h-14 rounded-full" src={user?.photoURL ? user.photoURL : `https://i.ibb.co/D9wWRM6/olivia.jpg`} alt="" />
                             </div>
                             :
                             <div>

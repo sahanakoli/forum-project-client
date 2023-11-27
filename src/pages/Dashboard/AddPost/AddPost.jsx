@@ -42,7 +42,7 @@ const AddPost = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is created a post`,
+                    title: `${data.name} is create a post`,
                     showConfirmButton: false,
                     timer: 1500
                   });

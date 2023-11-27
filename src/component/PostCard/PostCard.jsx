@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { BiDownvote, BiUpvote } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
-    const { name, image, title, description, tag, upVote, downVote } = post;
+    const {_id, name, image, title, description, tag, upVote, downVote } = post;
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+        <Link to={`/postDetails/${_id}`}>
+            <div className="card w-96 h-[350px] bg-base-100 shadow-xl">
                 <div className="card-body">
                     <div className=" flex gap-4">
                         <div className="avatar">
@@ -18,7 +20,7 @@ const PostCard = ({ post }) => {
                     <p>{tag}</p>
                     <p>{title}</p>
                     <p>{description}</p>
-                    <div className=" flex gap-4">
+                    <div className=" flex gap-4 mt-2">
                         <button className="btn">
                             <BiUpvote />
                             <div className="badge ">{upVote}</div>
@@ -31,6 +33,7 @@ const PostCard = ({ post }) => {
 
                 </div>
             </div>
+            </Link>
         </div>
     );
 };

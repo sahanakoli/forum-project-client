@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
@@ -9,6 +11,7 @@ const MakeAnnouncement = () => {
 
     const {register, handleSubmit} = useForm();
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
 
     const onSubmit = async (data) => {
         console.log(data)
@@ -20,6 +23,30 @@ const MakeAnnouncement = () => {
                 'content-type': 'multipart/form-data'
             }
         });
+
+        if(res.data.success){
+            // now send the menu item data to the server with the image url
+            const announcement = {
+                name: data.name,
+                email: data.email,
+                title: data.title,
+                description: data.description,
+                image: res.data.data.display_url
+
+            }
+            const announcementRes = await axiosSecure.post('/announcement', announcement);
+            console.log(announcementRes.data)
+            if(announcementRes.data.insertedId){
+                // show success popup
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `Announcement create successfully`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+        }
         console.log('announcement', res.data)
     }
     return (
