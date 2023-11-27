@@ -1,10 +1,9 @@
-import usePost from "../../../hooks/usePost";
+
 
 
 const MyPost = () => {
 
-    const [posts] = usePost();
-    const post = posts.filter(post => post._id === '_id')
+    
     return (
         <div>
             <div className="overflow-x-auto">
@@ -31,13 +30,13 @@ const MyPost = () => {
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
-                                                <img src={post.image} alt="" />
+                                                <img src="" alt="" />
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                   {post.title}
+                                   
                                 </td>
                                 <td></td>
                                 {/* <th>
