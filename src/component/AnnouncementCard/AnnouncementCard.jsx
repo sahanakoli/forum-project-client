@@ -6,7 +6,7 @@ const AnnouncementCard = ({announce}) => {
     const {image, name, title, description} = announce
     return (
         <div>
-            <div className="card w-96 h-[250px] bg-base-100 shadow-xl">
+            <div className="card w-96 h-[300px] bg-base-100 shadow-xl">
                 <div className="card-body">
                     <div className=" flex gap-4">
                         <div className="avatar">
@@ -16,7 +16,7 @@ const AnnouncementCard = ({announce}) => {
                         </div>
                         <h2 className="card-title">{name}</h2>
                     </div>
-                    <p>{title}</p>
+                    <p className="text-lg font-semibold mt-4">{title}</p>
                     <p>{description}</p>
 
                 </div>

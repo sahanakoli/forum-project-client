@@ -24,7 +24,7 @@ const AddPost = () => {
             }
             });
         if(res.data.success){
-            // now send the menu item data to the server with the image url
+            // now send the post data to the server with the image url
             const addPost = {
                 name: data.name,
                 email: data.email,

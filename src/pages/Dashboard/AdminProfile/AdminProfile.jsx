@@ -1,11 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useComments from "../../../hooks/useComments";
+import usePost from "../../../hooks/usePost";
 
 
 const AdminProfile = () => {
 
     const {user} = useAuth();
+    const comments = useComments();
+    const posts = usePost();
     const axiosSecure = useAxiosSecure();
 
     const { data: users = [] } = useQuery({
@@ -49,8 +53,8 @@ const AdminProfile = () => {
                             </td>
                             <td>{user.displayName}</td>
                             <td>{user.email}</td>
-                            <td></td>
-                            <td></td>
+                            <td>{posts.length}</td>
+                            <td>{comments.length}</td>
                             <td>{users.length}</td>
                             
                         </tr>

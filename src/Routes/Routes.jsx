@@ -14,7 +14,7 @@ import MyProfile from "../pages/Dashboard/MyProfile/MyProfile";
 import AddPost from "../pages/Dashboard/AddPost/AddPost";
 import MyPost from "../pages/Dashboard/MyPost/MyPost";
 import PostDetails from "../pages/Home/PostDetails/PostDetails";
-import Notification from "../pages/Home/Notification/Notification";
+
 
 
 const router = createBrowserRouter([
@@ -42,12 +42,8 @@ const router = createBrowserRouter([
         {
           path:'postDetails/:id',
           element: <PostDetails></PostDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/posts/${params.id}`)
+          loader: ({params}) => fetch(`https://forum-project-server.vercel.app/posts/${params.id}`)
         },
-        {
-          path:'notification',
-          element:<Notification></Notification>
-        }
         
       ]
     },

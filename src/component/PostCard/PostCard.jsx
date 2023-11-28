@@ -6,7 +6,7 @@ const PostCard = ({ post }) => {
     return (
         <div>
         <Link to={`/postDetails/${_id}`}>
-            <div className="card w-96 h-[250px] bg-base-100 shadow-xl">
+            <div className="card w-96 h-[250px] bg-base-100 text-slate-900 shadow-xl">
                 <div className="card-body">
                     <div className=" flex gap-4">
                         <div className="avatar">
@@ -19,7 +19,7 @@ const PostCard = ({ post }) => {
                         <p>{time}</p>
                         </div>
                     </div>
-                    <p className=" font-medium">{tag}</p>
+                    <p className=" font-medium mt-3">{tag}</p>
                     <p className=" text-lg font-semibold">Title: {title}</p>
                     <div className=" flex gap-4 mt-2">
                         <div className="flex">

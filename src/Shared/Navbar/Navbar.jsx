@@ -12,19 +12,19 @@ const Navbar = () => {
     const navItem = <>
       <li><Link to="/">HOME</Link></li>
       <li><Link to="/membership">MEMBERSHIP</Link></li>
-      <li><Link to="/notification">
+      <li>
       <button className=" flex">
-              <MdNotificationsActive className="mr-2 text-lg" />
+              <MdNotificationsActive className=" text-lg" />
               <div className="badge ">{notification.length}</div>
             </button>
-        </Link></li>
+        </li>
       <li><Link to="/joinUs">JOIN US</Link></li>
       
       
     </>
     return (
         <div>
-            <div className="navbar bg-base-100 h-28 mb-4 shadow-lg rounded-lg">
+            <div className="navbar bg-base-200 h-28 mb-4 shadow-lg rounded-lg">
                 <div className="navbar-start">
                     <div className="dropdown ">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

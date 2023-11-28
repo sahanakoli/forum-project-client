@@ -1,19 +1,51 @@
 import { useLoaderData } from "react-router-dom";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
 import { FaShareAlt } from "react-icons/fa";
-import { FaRegCommentAlt } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+
+
+
+
 
 
 const PostDetails = () => {
 
+
     const post = useLoaderData();
     console.log(post);
+    const { register, handleSubmit } = useForm();
+    const axiosSecure = useAxiosSecure();
     const { image, name, title, description, tag, time, upVote, downVote } = post;
-    
+
+    const onSubmit = async (data) => {
+
+        const addComment = {
+            comment: data.comment
+
+        }
+        console.log(addComment);
+        const commentRes = await axiosSecure.post('/comments', addComment);
+        console.log(commentRes.data)
+        if (commentRes.data.insertedId) {
+            // show success popup
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: 'Comment post successfully',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+    }
+
+
 
     return (
-        <div className=" flex justify-center items-center">
-            <div className="card w-96 h-[400px] bg-base-100 shadow-xl">
+        <div className=" flex justify-center items-center mt-16">
+            <div className="card w-96 h-[500px] bg-base-100 shadow-xl">
                 <div className="card-body">
                     <div className=" flex gap-4">
                         <div className="avatar">
@@ -26,7 +58,7 @@ const PostDetails = () => {
                             <p>{time}</p>
                         </div>
                     </div>
-                    <p className=" font-medium">{tag}</p>
+                    <p className=" font-medium mt-8">{tag}</p>
                     <p className=" text-lg font-semibold">Title: {title}</p>
                     <p className=" font-normal">Description: {description}</p>
                     <div className=" flex gap-4 mt-2">
@@ -38,10 +70,16 @@ const PostDetails = () => {
                             <BiDownvote className=" text-lg" />
                             <div className="badge ">{downVote}</div>
                         </button>
-                        <button className="btn"><FaRegCommentAlt className=" text-lg" /></button>
+                    </div>
+                    <div className=" flex gap-4 mt-2">
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="join"> 
+                            <input type="text" name="comment" {...register('comment', { required: true })} className="input input-bordered join-item" placeholder="comment here" />
+                            <button className="btn join-item ">Post</button>
+                        </div>
+                        </form>
                         <button className="btn"><FaShareAlt className=" text-lg" /></button>
                     </div>
-                   
                 </div>
             </div>
         </div>

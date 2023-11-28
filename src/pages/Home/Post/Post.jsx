@@ -5,8 +5,8 @@ const Post = () => {
     const [posts] = usePost();
     return (
         <div>
-            <h2 className=" text-4xl font-bold text-center mt-10">All Posts</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+            <h2 className=" text-4xl font-bold text-center mt-24">All Posts</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
             {
                 posts.map(post => <PostCard key={post.id} post={post}></PostCard>)
             }
