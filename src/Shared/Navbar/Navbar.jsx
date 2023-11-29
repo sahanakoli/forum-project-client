@@ -8,6 +8,7 @@ import useAnnouncement from "../../hooks/useAnnouncement";
 const Navbar = () => {
 
     const notification = useAnnouncement();
+    console.log(notification)
     
     const navItem = <>
       <li><Link to="/">HOME</Link></li>
@@ -34,7 +35,7 @@ const Navbar = () => {
                             {navItem}
                         </ul>
                     </div>
-                    <img className="w-24 h-14" src="https://i.ibb.co/W5CDqgW/forum.png" alt="" />
+                    <img className="w-20 h-14" src="https://i.ibb.co/W5CDqgW/forum.png" alt="" />
                     <a className=" normal-case text-3xl font-bold">Forum</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">

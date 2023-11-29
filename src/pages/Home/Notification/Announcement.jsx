@@ -3,7 +3,7 @@ import useAnnouncement from "../../../hooks/useAnnouncement";
 
 
 const Announcement = () => {
-    const [announcement] = useAnnouncement();
+    const announcement = useAnnouncement();
     return (
         <div>
             <h2 className=" text-4xl font-bold text-center mt-24">All Announcement</h2>

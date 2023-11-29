@@ -4,6 +4,7 @@ import { FaShareAlt } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { BiComment } from "react-icons/bi";
 
 
 
@@ -75,7 +76,7 @@ const PostDetails = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="join"> 
                             <input type="text" name="comment" {...register('comment', { required: true })} className="input input-bordered join-item" placeholder="comment here" />
-                            <button className="btn join-item ">Post</button>
+                            <button className="btn join-item "><BiComment className=" text-lg" /></button>
                         </div>
                         </form>
                         <button className="btn"><FaShareAlt className=" text-lg" /></button>

@@ -2,11 +2,12 @@
 import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
+    
     const {_id, name, image, title, time,  tag,  downVote } = post;
     return (
         <div>
         <Link to={`/postDetails/${_id}`}>
-            <div className="card w-96 h-[250px] bg-base-100 text-slate-900 shadow-xl">
+            <div className="card w-96 h-[250px] bg-base-200 text-slate-900 shadow-xl">
                 <div className="card-body">
                     <div className=" flex gap-4">
                         <div className="avatar">

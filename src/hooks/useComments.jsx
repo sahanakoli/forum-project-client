@@ -12,7 +12,7 @@ const useComments = () => {
             return res.data;
         }
     }) 
-    return [comments]
+    return comments
 };
 
 export default useComments;

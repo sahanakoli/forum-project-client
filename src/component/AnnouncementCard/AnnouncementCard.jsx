@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
 
 
+
+
 const AnnouncementCard = ({announce}) => {
 
-    const {image, name, title, description} = announce
+    const {image, name, title, description} = announce;
+    console.log(announce)
     return (
         <div>
-            <div className="card w-96 h-[300px] bg-base-100 shadow-xl">
+            <div className="card w-96 h-[300px] bg-base-200 shadow-xl">
                 <div className="card-body">
                     <div className=" flex gap-4">
                         <div className="avatar">

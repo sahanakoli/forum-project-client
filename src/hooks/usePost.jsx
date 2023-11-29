@@ -9,7 +9,7 @@ const usePost = () => {
         queryKey: ['posts'],
         queryFn: async() =>{
             const res = await axiosPublic.get('/posts');
-            return res.data;
+            return res.data.reverse();
         }
     }) 
     return [posts]

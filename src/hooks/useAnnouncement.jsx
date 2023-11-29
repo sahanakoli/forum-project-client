@@ -12,7 +12,7 @@ const useAnnouncement = () => {
             return res.data;
         }
     }) 
-    return [announcement]
+    return announcement;
 };
 
 export default useAnnouncement;
