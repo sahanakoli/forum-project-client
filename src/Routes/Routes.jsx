@@ -15,6 +15,7 @@ import AddPost from "../pages/Dashboard/AddPost/AddPost";
 import MyPost from "../pages/Dashboard/MyPost/MyPost";
 import PostDetails from "../pages/Home/PostDetails/PostDetails";
 import Comments from "../pages/Dashboard/Comments/Comments";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
         },
         {
           path:'membership',
-          element:<Membership></Membership>
+          element:<PrivateRoute><Membership></Membership></PrivateRoute>
         },
         {
           path:'joinUs',
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
     },
     {
       path:'dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         //Admin routes
         {
