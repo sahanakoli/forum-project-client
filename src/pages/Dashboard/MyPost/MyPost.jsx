@@ -1,4 +1,5 @@
-
+import { FaTrash } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 
 const MyPost = () => {
@@ -13,43 +14,25 @@ const MyPost = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>
-                              
-                            </th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Price</th>
+                            
+                            <th>Title</th>
+                            <th>Votes</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         
                         <tr>
-                                <th>
-                                
-                                </th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                            <img src="" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                   
-                                </td>
                                 <td></td>
-                                {/* <th>
-                                    <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-xs"><FaTrash className=' text-red-600'></FaTrash></button>
-                                </th> */}
+                                <td></td>
+                                <td><FaTrash className=" text-red-500"/></td>
                             </tr>
-                        
-
                     </tbody>
                 </table>
             </div>
+             <Link to='/dashboard/comments'>
+             <button className="btn bg-blue-300 mt-10">Comments</button>
+             </Link>
         </div>
     );
 };

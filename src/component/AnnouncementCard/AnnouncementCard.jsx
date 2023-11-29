@@ -9,7 +9,7 @@ const AnnouncementCard = ({announce}) => {
     console.log(announce)
     return (
         <div>
-            <div className="card w-96 h-[300px] bg-base-200 shadow-xl">
+            <div className="card w-96 h-[320px] bg-base-200 shadow-xl">
                 <div className="card-body">
                     <div className=" flex gap-4">
                         <div className="avatar">

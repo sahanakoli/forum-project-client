@@ -14,6 +14,7 @@ import MyProfile from "../pages/Dashboard/MyProfile/MyProfile";
 import AddPost from "../pages/Dashboard/AddPost/AddPost";
 import MyPost from "../pages/Dashboard/MyPost/MyPost";
 import PostDetails from "../pages/Home/PostDetails/PostDetails";
+import Comments from "../pages/Dashboard/Comments/Comments";
 
 
 
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
         {
           path:'myPost',
           element:<MyPost></MyPost>
+        },
+        {
+          path:'comments',
+          element:<Comments></Comments>
         }
         
       ]

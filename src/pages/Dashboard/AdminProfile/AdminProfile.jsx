@@ -111,7 +111,7 @@ const AdminProfile = () => {
             </div>
             {/* tag form */}
             <div>
-                <h2 className=" text-2xl font-semibold mt-8">Tag Form</h2>
+                <h2 className=" text-2xl font-semibold mt-8">Add Tag</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="join">
                     <input type="text" name="tag" {...register('tag', { required: true })} className="input input-bordered join-item" placeholder="Tag" />
