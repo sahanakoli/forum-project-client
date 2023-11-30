@@ -122,6 +122,9 @@ const AddPost = () => {
                     <div className="flex gap-6">
                         {/* Image */}
                     <div className="form-control w-full my-10">
+                    <label className="label">
+                            <span className="label-text">Image</span>
+                        </label>
                         <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                     </div>
                         {/* Tag */}

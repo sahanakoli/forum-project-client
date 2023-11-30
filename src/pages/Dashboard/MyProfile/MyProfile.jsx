@@ -1,5 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import ProfileCard from "./ProfileCard";
 
 
 
@@ -7,6 +10,14 @@ const MyProfile = () => {
 
 
     const { user } = useAuth();
+    const axiosPublic = useAxiosPublic();
+    const { data: posts } = useQuery({
+        queryKey: ['posts', user?.email],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/posts/${user?.email}`);
+            return res.data;
+        }
+    })
     
 
     return (
@@ -46,6 +57,11 @@ const MyProfile = () => {
                     </tbody>
                 </table>
             </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+             {
+                posts?.map(post => <ProfileCard key={post.id} post={post}></ProfileCard>)
+             }
+             </div>
         </div>
     );
 };
