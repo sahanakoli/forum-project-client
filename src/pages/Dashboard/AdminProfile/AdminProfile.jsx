@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useComments from "../../../hooks/useComments";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 
 import { PieChart, Pie, Cell} from 'recharts';
 import { Helmet } from "react-helmet-async";
+import useUser from "../../../hooks/useUser";
 
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
@@ -21,6 +22,7 @@ const AdminProfile = () => {
     console.log(posts)
     const axiosSecure = useAxiosSecure();
     const { register, handleSubmit } = useForm();
+    const users = useUser();
 
     const data = [
         { name: 'post', value: posts.length },
@@ -29,17 +31,17 @@ const AdminProfile = () => {
 
     ];
 
-    const { data: users = [] } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/users', {
-                headers: {
-                    authorization: 'Bearer'
-                }
-            });
-            return res.data;
-        }
-    });
+    // const { data: users = [] } = useQuery({
+    //     queryKey: ['users'],
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get('/users', {
+    //             headers: {
+    //                 authorization: 'Bearer'
+    //             }
+    //         });
+    //         return res.data;
+    //     }
+    // });
 
     const onSubmit = async (data) => {
 

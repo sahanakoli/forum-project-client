@@ -99,7 +99,7 @@ const MakeAnnouncement = () => {
                     </div>
 
                     <button className="btn bg-blue-300 w-1/2">
-                        Make Announcement
+                         Announcement
                     </button>
                 </form> 
         </div>

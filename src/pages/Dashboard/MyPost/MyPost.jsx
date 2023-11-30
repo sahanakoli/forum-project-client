@@ -3,20 +3,23 @@ import { Helmet } from "react-helmet-async";
 import { FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useAuth from "../../../hooks/useAuth";
+import { FaRegCommentDots } from "react-icons/fa6";
 
 
 const MyPost = () => {
+    const { user } = useAuth();
 
     const axiosPublic = useAxiosPublic();
-    const {data: posts } = useQuery({
-        queryKey: ['posts'],
-        queryFn: async () =>{
-           const res = await axiosPublic.get(`/posts/${posts.email}`);
-           return res.data;
+    const { data: posts } = useQuery({
+        queryKey: ['posts', user?.email],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/posts/${user?.email}`);
+            return res.data;
         }
     })
 
-    
+    console.log(posts)
     return (
         <div>
             <Helmet>
@@ -27,25 +30,30 @@ const MyPost = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            
+                            <th></th>
                             <th>Title</th>
                             <th>Votes</th>
+                            <th>Comment</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        <tr>
-                                <td>{posts.title}</td>
+                        {
+                            posts?.map((post, index) => <tr key={post.id}>
+                                <td>{index + 1}</td>
+                                <td>{post.title}</td>
                                 <td></td>
-                                <td><button className="btn"><FaTrash className=" text-red-500"/></button></td>
-                            </tr>
+                                <td><Link to='/dashboard/comments'>
+                                    <button className="btn "><FaRegCommentDots /></button>
+                                </Link></td>
+                                <td><button className="btn"><FaTrash className=" text-red-500" /></button></td>
+                            </tr>)
+                        }
+
+
                     </tbody>
                 </table>
             </div>
-             <Link to='/dashboard/comments'>
-             <button className="btn bg-blue-300 mt-10">Comments</button>
-             </Link>
         </div>
     );
 };

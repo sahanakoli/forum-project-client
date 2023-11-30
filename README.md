@@ -11,4 +11,4 @@
 - They can vote, comment and share.
  
 
- Project website live link: 
+ Project website live link: https://earnest-piroshki-672176.netlify.app

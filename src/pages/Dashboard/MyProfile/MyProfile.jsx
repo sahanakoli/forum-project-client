@@ -15,7 +15,7 @@ const MyProfile = () => {
                 <title>Forum | User Profile</title>
             </Helmet>
             <h2 className=" text-3xl font-semibold">My Profile</h2>
-            <div className="overflow-x-auto mt-6">
+            <div className="lg:overflow-x-auto mt-6">
                 <table className="table w-1/2 lg:w-full">
                     {/* head */}
                     <thead>

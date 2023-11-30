@@ -107,7 +107,7 @@ const SignUp = () => {
                             <SocialLogin></SocialLogin>
                         </form>
                     </div>
-                    <div className="ml-10 w-1/2">
+                    <div className="ml-10 mt-10 md:mt-10 lg:mt-0 lg:w-1/2">
                         <img className=" rounded-lg" src="https://i.ibb.co/86Z06fF/login.jpg" alt="" />
                     </div>
                 </div>
