@@ -5,6 +5,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../component/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -54,6 +55,9 @@ const SignUp = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Forum | Sign Up</title>
+            </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="card flex-shrink-0 w-full max-w-sm mt-24 shadow-2xl bg-base-100">

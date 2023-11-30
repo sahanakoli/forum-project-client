@@ -1,14 +1,27 @@
+import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 import { FaTrash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 const MyPost = () => {
 
-    
+    const axiosPublic = useAxiosPublic();
+    const {data: posts } = useQuery({
+        queryKey: ['posts'],
+        queryFn: async () =>{
+           const res = await axiosPublic.get(`/posts/${posts.email}`);
+           return res.data;
+        }
+    })
 
     
     return (
         <div>
+            <Helmet>
+                <title>Forum | My Post</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}
@@ -23,9 +36,9 @@ const MyPost = () => {
                     <tbody>
                         
                         <tr>
+                                <td>{posts.title}</td>
                                 <td></td>
-                                <td></td>
-                                <td><FaTrash className=" text-red-500"/></td>
+                                <td><button className="btn"><FaTrash className=" text-red-500"/></button></td>
                             </tr>
                     </tbody>
                 </table>

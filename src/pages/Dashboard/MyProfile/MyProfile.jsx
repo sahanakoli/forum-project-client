@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useAuth from "../../../hooks/useAuth";
 
 
@@ -10,6 +11,9 @@ const MyProfile = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Forum | User Profile</title>
+            </Helmet>
             <h2 className=" text-3xl font-semibold">My Profile</h2>
             <div className="overflow-x-auto mt-6">
                 <table className="table w-1/2 lg:w-full">

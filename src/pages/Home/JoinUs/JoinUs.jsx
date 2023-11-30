@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import SocialLogin from "../../../component/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -39,6 +40,9 @@ const JoinUs = () => {
     }
     return (
         <div>
+          <Helmet>
+                <title>Forum | Join Us</title>
+            </Helmet>
             <div className="hero min-h-screen bg-base-200 mt-6">
         <div className="hero-content flex-col lg:flex-row ">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

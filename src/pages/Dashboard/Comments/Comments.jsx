@@ -23,8 +23,8 @@ const Comments = () => {
                             comments.map((comment, index) => <tr key={comment.id}>
                                 <td>{index + 1}</td>
                                 <td>{comment.comment}</td>
-                                <td><button><MdOutlineFeedback className=" text-xl" /></button></td>
-                                <td><button className=""><MdOutlineReport className=" text-red-500 text-xl" /></button></td>
+                                <td><button className="btn"><MdOutlineFeedback className=" text-xl" /></button></td>
+                                <td><button disabled= 'true' className="btn"><MdOutlineReport className=" text-red-500 text-xl" /></button></td>
                             </tr>)
                         }
                     </tbody>

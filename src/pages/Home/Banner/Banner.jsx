@@ -6,28 +6,15 @@
 
 const Banner = () => {
 
-    // const posts = usePost();
-    // const [value, setValue] = useState();
-
-    // const { data: tag } = useQuery({
-    //     queryKey: ['tag'],
-    //     queryFn: async () => {
-    //         const res = await posts.filter(tags =>  tags.tag == tag);
-    //         return res.data;
-    //     }
-    // })
-
-    // const handleTag = event =>{
-    //     setValue(event.target.tag);
-    // }
+    
     return (
         <div>
             <div className="hero h-[500px]" style={{ backgroundImage: 'url(https://i.ibb.co/r29c4HN/bn.jpg)' }}>
                 <div className="hero-overlay bg-opacity-80"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold text-white">Join Our Forum<br /> Community</h1>
-                        <p className="mb-5 text-white">Join us at Forum for an intellectual journey where thoughts converge and ideas take flight. Explore diverse conversations, forge connections, and be part of a community that values the exchange of knowledge and experiences.</p>
+                        <h1 className="mb-5 text-5xl font-bold text-white">Forum Community</h1>
+                        <p className="mb-5 text-white">Forum for an intellectual journey where thoughts converge and ideas take flight. Explore diverse conversations, forge connections, and be part of a community that values the exchange of knowledge and experiences.</p>
                         <div className=" flex justify-center items-center">
                             <div className="search bar w-4/5 md:2/12 lg:w-7/12 ">
                                 <div className="relative flex h-10 w-full min-w-[200px] max-w-[24rem]">
@@ -35,7 +22,7 @@ const Banner = () => {
                                         type="text"
                                         name='tag'
                                         className=" h-full w-full p-4  text-sm text-gray-900 border border-gray-300 rounded-lg bg-white  dark:text-white "
-                                        placeholder="Search by tag"
+                                        placeholder="Post search by tag"
                                         required
                                     />
                                     <button

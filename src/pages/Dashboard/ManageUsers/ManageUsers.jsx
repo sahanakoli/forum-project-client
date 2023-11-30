@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import Swal from "sweetalert2";
 import {  FaUsers } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -39,6 +40,9 @@ const ManageUsers = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Forum | Manage Users</title>
+            </Helmet>
             <div className="flex justify-between gap-10">
                 <h2 className=" text-3xl font-semibold">All Users</h2>
                 <h2 className=" text-3xl font-semibold">Total Users: {users.length}</h2>
@@ -66,7 +70,7 @@ const ManageUsers = () => {
                                         user.role === 'admin' ? 'admin' : <button onClick={() => handleMakeAdmin(user)} className="btn bg-orange-500 btn-lg"><FaUsers className=' text-white text-xl'></FaUsers></button>
                                     }
                                 </td>
-                                <td>{user.badge}</td>
+                                <td></td>
                             </tr>)
                         }
                     </tbody>

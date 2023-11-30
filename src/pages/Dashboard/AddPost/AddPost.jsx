@@ -5,6 +5,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -33,9 +34,10 @@ const AddPost = () => {
                 image: res.data.data.display_url,
                 time: data.time,
                 tag: data.tag,
-                upVote: data.upVote,
-                downVote: data.downVote
+                upVote: 0,
+                downVote: 0
             }
+            console.log(addPost)
             const postRes = await axiosSecure.post('/posts', addPost);
             console.log(postRes.data)
             if(postRes.data.insertedId){
@@ -43,7 +45,7 @@ const AddPost = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is create a post`,
+                    title: 'Post create successfully',
                     showConfirmButton: false,
                     timer: 1500
                   });
@@ -53,6 +55,9 @@ const AddPost = () => {
     };
     return (
         <div>
+            <Helmet>
+                <title>Forum | Add Post</title>
+            </Helmet>
             <form onSubmit={handleSubmit(onSubmit)}>
                    {/* Name */}
                     <div className="form-control w-1/2 lg:w-full my-6">
@@ -141,8 +146,8 @@ const AddPost = () => {
                         <input
                             type="text"
                             placeholder="UpVote"
-                            {...register('upVote', { required: true })}
-                            required
+                            {...register('upVote')}
+                             readOnly
                             className="input input-bordered w-full" />
                     </div>
                     <div className="form-control w-1/2 lg:w-full my-6">
@@ -152,8 +157,8 @@ const AddPost = () => {
                         <input
                             type="text"
                             placeholder="DownVote"
-                            {...register('downVote', { required: true })}
-                            required
+                            {...register('downVote')}
+                             readOnly
                             className="input input-bordered w-full" />
                     </div>
                     </div>

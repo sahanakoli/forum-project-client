@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 import { PieChart, Pie, Cell} from 'recharts';
+import { Helmet } from "react-helmet-async";
 
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
@@ -22,9 +23,9 @@ const AdminProfile = () => {
     const { register, handleSubmit } = useForm();
 
     const data = [
-        { name: 'post', value: 10 },
-        { name: 'comment', value: 3 },
-        { name: 'user', value: 8 },
+        { name: 'post', value: posts.length },
+        { name: 'comment', value: comments.length },
+        { name: 'user', value: users.length },
 
     ];
 
@@ -77,6 +78,9 @@ const AdminProfile = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Forum | Admin Profile</title>
+            </Helmet>
             <h2 className=" text-3xl font-semibold">My Profile</h2>
             <div className="lg:overflow-x-auto mt-6">
                 <table className="table w-1/2 lg:w-full">

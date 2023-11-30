@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { BiComment } from "react-icons/bi";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -45,6 +46,10 @@ const PostDetails = () => {
 
 
     return (
+        <div>
+            <Helmet>
+                <title>Forum | Post Details</title>
+            </Helmet>
         <div className=" flex justify-center items-center mt-16">
             <div className="card w-96 h-[500px] bg-base-100 shadow-xl">
                 <div className="card-body">
@@ -83,6 +88,7 @@ const PostDetails = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const image_hosting_key = import.meta.env.VITE_image_hosting_key;
@@ -51,6 +52,9 @@ const MakeAnnouncement = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Forum | Make Announcement</title>
+            </Helmet>
            <form onSubmit={handleSubmit(onSubmit)}>
                    {/* Name */}
                     <div className="form-control w-1/2 lg:w-full my-6">
