@@ -59,7 +59,7 @@ const CheckoutForm = () => {
     return (
         <div>
            {/* <h2 className=" text-xl font-medium mt-10">Payment Amount: $15</h2> */}
-            <div className="w-full mt-8">
+            <div className="lg:w-5/6 mt-8">
             <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{

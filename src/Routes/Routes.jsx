@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         {
           path:'postDetails/:id',
           element: <PostDetails></PostDetails>,
-          loader: ({params}) => fetch(`https://forum-project-server.vercel.app/posts/${params.id}`)
+          loader: ({params}) => fetch(`https://forum-project-server.vercel.app/posts1/${params.id}`)
         },
         
       ]

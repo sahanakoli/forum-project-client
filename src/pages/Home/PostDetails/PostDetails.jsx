@@ -14,11 +14,12 @@ import { Helmet } from "react-helmet-async";
 
 const PostDetails = () => {
 
-
+    
     const post = useLoaderData();
-    console.log(post);
+    console.log('post data',post);
     const { register, handleSubmit } = useForm();
     const axiosSecure = useAxiosSecure();
+    
     const { image, name, title, description, tag, time, upVote, downVote } = post;
 
     const onSubmit = async (data) => {

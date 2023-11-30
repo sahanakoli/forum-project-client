@@ -43,7 +43,7 @@ const JoinUs = () => {
           <Helmet>
                 <title>Forum | Join Us</title>
             </Helmet>
-            <div className="hero min-h-screen bg-base-200 mt-6">
+            <div className="hero min-h-screen bg-base-200 mt-14 lg:mt-6">
         <div className="hero-content flex-col lg:flex-row ">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <h2 className=" text-4xl text-center font-semibold mt-3">Login Now</h2>

@@ -49,8 +49,6 @@ const MyPost = () => {
                                 <td><button className="btn"><FaTrash className=" text-red-500" /></button></td>
                             </tr>)
                         }
-
-
                     </tbody>
                 </table>
             </div>
