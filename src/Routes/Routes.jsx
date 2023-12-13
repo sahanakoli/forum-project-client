@@ -16,6 +16,9 @@ import MyPost from "../pages/Dashboard/MyPost/MyPost";
 import PostDetails from "../pages/Home/PostDetails/PostDetails";
 import Comments from "../pages/Dashboard/Comments/Comments";
 import PrivateRoute from "./PrivateRoute";
+import ContactUs from "../component/ContactUs/ContactUs";
+import RulesPage from "../component/RulesPage/RulesPage";
+
 
 
 
@@ -38,6 +41,10 @@ const router = createBrowserRouter([
           element:<JoinUs></JoinUs>
         },
         {
+          path:'contactUs',
+          element:<ContactUs></ContactUs>
+        },
+        {
           path:'signUp',
           element:<SignUp></SignUp>
         },
@@ -46,6 +53,10 @@ const router = createBrowserRouter([
           element: <PostDetails></PostDetails>,
           loader: ({params}) => fetch(`https://forum-project-server.vercel.app/posts1/${params.id}`)
         },
+        {
+          path:'rulesPage',
+          element:<RulesPage></RulesPage>
+        }
         
       ]
     },

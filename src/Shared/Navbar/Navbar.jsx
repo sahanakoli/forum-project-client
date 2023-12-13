@@ -20,6 +20,7 @@ const Navbar = () => {
             </button>
         </li>
       <li><Link to="/joinUs">JOIN US</Link></li>
+      <li><Link to="/contactUs">CONTACT US</Link></li>
       
       
     </>

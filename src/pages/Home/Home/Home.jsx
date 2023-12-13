@@ -4,6 +4,7 @@ import Announcement from "../Notification/Announcement";
 
 import Post from "../Post/Post";
 import Tag from "../Tag/Tag";
+import Rules from "../Rules/Rules";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
                 <title>Forum | Home</title>
             </Helmet>
             <Banner></Banner>
+            <Rules></Rules>
             <Tag></Tag>
             <Announcement></Announcement>
             <Post></Post>
